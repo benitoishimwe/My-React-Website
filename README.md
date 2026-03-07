@@ -71,6 +71,7 @@ cd My-React-Website
 
 # install dependencies
 npm install
+<<<<<<< HEAD
 ```
 
 ### Running the app locally
@@ -263,3 +264,5 @@ Some potential improvements:
 
 This project currently does not declare a license.  
 If you plan to make the code public and reusable, consider adding a `LICENSE` file (for example, MIT) and updating this section accordingly.
+=======
+>>>>>>> ff62897d47ea0c6f42d934a1889d974b2cb71f2b
