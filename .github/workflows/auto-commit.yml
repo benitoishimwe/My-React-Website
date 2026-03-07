@@ -5,6 +5,10 @@ on:
     - cron: "0 10 * * *"   # runs every day at 10:00 UTC
   workflow_dispatch:        # allows manual run
 
+# Ensure this workflow can push commits back to the repository
+permissions:
+  contents: write
+
 jobs:
   auto-commit:
     runs-on: ubuntu-latest
@@ -12,6 +16,9 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
+        with:
+          # Personal Access Token stored as a repository secret
+          token: ${{ secrets.PAT_TOKEN }}
 
       - name: Make changes
         run: |
@@ -23,4 +30,4 @@ jobs:
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
           git add .
           git commit -m "Automated commit" || echo "No changes to commit"
-          git push
+          git push origin HEAD:main
