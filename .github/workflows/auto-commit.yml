@@ -2,10 +2,9 @@ name: Auto Commit
 
 on:
   schedule:
-    - cron: "0 10 * * *"   # runs every day at 10:00 UTC
-  workflow_dispatch:        # allows manual run
+    - cron: "0 10 * * *"
+  workflow_dispatch:
 
-# Ensure this workflow can push commits back to the repository
 permissions:
   contents: write
 
@@ -15,9 +14,8 @@ jobs:
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
         with:
-          # Personal Access Token stored as a repository secret
           token: ${{ secrets.PAT_TOKEN }}
 
       - name: Make changes
